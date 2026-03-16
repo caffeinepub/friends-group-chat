@@ -1,0 +1,115 @@
+@font-face {
+  font-family: "Fraunces";
+  font-style: normal;
+  font-weight: 300 900;
+  font-display: swap;
+  src: url("/assets/fonts/Fraunces.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Figtree";
+  font-style: normal;
+  font-weight: 300 900;
+  font-display: swap;
+  src: url("/assets/fonts/Figtree.woff2") format("woff2");
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Warm coral/peach chat theme */
+    --background: 0.97 0.01 60;
+    --foreground: 0.18 0.03 30;
+
+    --card: 1 0 0;
+    --card-foreground: 0.18 0.03 30;
+
+    --popover: 1 0 0;
+    --popover-foreground: 0.18 0.03 30;
+
+    --primary: 0.62 0.18 30;
+    --primary-foreground: 0.99 0.005 60;
+
+    --secondary: 0.94 0.04 55;
+    --secondary-foreground: 0.28 0.05 30;
+
+    --muted: 0.93 0.02 55;
+    --muted-foreground: 0.52 0.04 40;
+
+    --accent: 0.88 0.08 60;
+    --accent-foreground: 0.25 0.05 30;
+
+    --destructive: 0.55 0.22 25;
+    --destructive-foreground: 0.99 0 0;
+
+    --border: 0.89 0.03 55;
+    --input: 0.89 0.03 55;
+    --ring: 0.62 0.18 30;
+
+    --radius: 1rem;
+
+    /* Chat-specific */
+    --bubble-self: 0.62 0.18 30;
+    --bubble-self-fg: 0.99 0.005 60;
+    --bubble-other: 1 0 0;
+    --bubble-other-fg: 0.18 0.03 30;
+
+    --header-bg: 0.62 0.18 30;
+    --header-fg: 0.99 0.005 60;
+
+    --chart-1: 0.62 0.18 30;
+    --chart-2: 0.72 0.15 55;
+    --chart-3: 0.65 0.16 200;
+    --chart-4: 0.7 0.14 280;
+    --chart-5: 0.75 0.13 160;
+
+    --sidebar: 0.97 0.01 60;
+    --sidebar-foreground: 0.18 0.03 30;
+    --sidebar-primary: 0.62 0.18 30;
+    --sidebar-primary-foreground: 0.99 0.005 60;
+    --sidebar-accent: 0.88 0.08 60;
+    --sidebar-accent-foreground: 0.25 0.05 30;
+    --sidebar-border: 0.89 0.03 55;
+    --sidebar-ring: 0.62 0.18 30;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer utilities {
+  .bubble-self {
+    background-color: oklch(var(--bubble-self));
+    color: oklch(var(--bubble-self-fg));
+  }
+  .bubble-other {
+    background-color: oklch(var(--bubble-other));
+    color: oklch(var(--bubble-other-fg));
+  }
+  .chat-bg {
+    background-image: radial-gradient(
+        ellipse at 20% 10%,
+        oklch(0.9 0.08 35 / 0.4) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        ellipse at 80% 80%,
+        oklch(0.88 0.09 55 / 0.35) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        ellipse at 50% 50%,
+        oklch(0.95 0.03 60 / 0.2) 0%,
+        transparent 70%
+      );
+  }
+}
